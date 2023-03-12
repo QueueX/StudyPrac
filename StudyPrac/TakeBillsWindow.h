@@ -12,7 +12,6 @@ public:
 
 private:
     static LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
     HINSTANCE hInstanceTB;
     HWND hwndTB;
     HWND inputTB;

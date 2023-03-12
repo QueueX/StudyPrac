@@ -5,6 +5,7 @@
 using namespace std;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+
     TakeBillsWindow takeBillsWindow(hInstance);
     HWND hwnd = takeBillsWindow.Create();
 
