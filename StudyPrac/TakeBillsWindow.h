@@ -1,5 +1,4 @@
 #include <Windows.h>
-#include <string>
 
 class TakeBillsWindow
 {
@@ -8,10 +7,12 @@ public:
     HWND Create();
     ~TakeBillsWindow();
 
+    void BackToMenu();
+
 private:
     static LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-    HINSTANCE hInstanceTB;
+    static HINSTANCE hInstanceTB;
     HWND hwndTB;
     HWND inputTB;
     HWND enterTB;

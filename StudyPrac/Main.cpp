@@ -1,13 +1,17 @@
 ﻿#include <Windows.h>
 #include <string>
 #include "TakeBillsWindow.h"
+#include "OperationMenuWindow.h"
 
 using namespace std;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
     TakeBillsWindow takeBillsWindow(hInstance);
-    HWND hwnd = takeBillsWindow.Create();
+    HWND hwndTB = takeBillsWindow.Create();
+    HWND hwnd;
+
+    hwnd = hwndTB;
 
     if (hwnd == NULL) {
         return 0;

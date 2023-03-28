@@ -1,19 +1,19 @@
 ﻿#include "TakeBillsWindow.h"
+#include "OperationMenuWindow.h"
 
 using namespace std;
-
-static const wchar_t CLASS_NAME[] = L"Окно снятия денег";
-
-
-TakeBillsWindow::TakeBillsWindow(HINSTANCE hInstance) : hInstanceTB(hInstance) {
-    static const wchar_t CLASS_NAME[] = L"Окно снятия денег";
-}
-
 
 #define IDC_ENTER_TB 1001
 #define IDC_CLEAR_TB 1002
 #define IDC_CLOSE_TB 1003
 
+static const wchar_t CLASS_NAME[] = L"Окно снятия денег";
+
+HINSTANCE TakeBillsWindow::hInstanceTB = NULL;
+
+TakeBillsWindow::TakeBillsWindow(HINSTANCE hInstance) {
+    static const wchar_t CLASS_NAME[] = L"Окно снятия денег";
+}
 
 HWND TakeBillsWindow::Create() {
     WNDCLASS window = {};
@@ -248,7 +248,9 @@ LRESULT CALLBACK TakeBillsWindow::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, L
         switch (LOWORD(wParam))
         {
         case IDC_CLOSE_TB:
-            PostMessage(hwnd, WM_CLOSE, 0, 0);
+            OperationMenuWindow operationMenuWindow(hInstanceTB);
+            operationMenuWindow.Create();
+            DestroyWindow(hwnd);
             break;
         }
         break;
